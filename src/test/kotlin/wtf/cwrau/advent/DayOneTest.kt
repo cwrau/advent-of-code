@@ -15,4 +15,20 @@ class DayOneTest {
 
         assertEquals(142, DayOne().calculate(input))
     }
+
+    @Test
+    fun `calculate example input 2`() {
+        val input = """
+            two1nine
+            eightwothree
+            abcone2threexyz
+            xtwone3four
+            4nineeightseven2
+            zoneight234
+            7pqrstsixteen
+        """.trimIndent()
+
+        assertEquals(281, DayOne().calculate(input))
+    }
+
 }
