@@ -5,7 +5,7 @@ import kotlin.test.Test
 
 class DayOneTest {
     @Test
-    fun `calculate example input 1`() {
+    fun `input 1`() {
         val input = """
             1abc2
             pqr3stu8vwx
@@ -17,7 +17,7 @@ class DayOneTest {
     }
 
     @Test
-    fun `calculate example input 2`() {
+    fun `input 2`() {
         val input = """
             two1nine
             eightwothree
