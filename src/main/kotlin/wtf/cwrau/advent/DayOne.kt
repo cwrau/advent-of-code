@@ -2,23 +2,22 @@ package wtf.cwrau.advent
 
 import wtf.cwrau.AdventOfCodeDay
 
-val digits = listOf(
-    "zero",
-    "one",
-    "two",
-    "three",
-    "four",
-    "five",
-    "six",
-    "seven",
-    "eight",
-    "nine",
-)
-
 class DayOne : AdventOfCodeDay<Int> {
-    override fun calculate(input: String): Int {
-        return input.lines()
-            .filter { it.isNotEmpty() }
+    private val digits = listOf(
+        "zero",
+        "one",
+        "two",
+        "three",
+        "four",
+        "five",
+        "six",
+        "seven",
+        "eight",
+        "nine",
+    )
+
+    override fun calculate(input: List<String>): Int {
+        return input
             .map {
                 val parseDigits = it.parseDigits()
                 it to parseDigits
