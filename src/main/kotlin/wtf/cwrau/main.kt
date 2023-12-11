@@ -8,10 +8,27 @@ fun main() {
             it::class.java.simpleName
         }
         .mapValues { (name, advent) ->
-            advent.calculate(getInput(name))
+            val input = getInput(name).lines()
+            runCatching { advent.calculatePartOne(input) } to runCatching { advent.calculatePartTwo(input) }
         }
-        .forEach { (name, result) ->
-            println("$name: $result")
+        .forEach { (name, results) ->
+            val (result, resultTwo) = results
+            println(buildString {
+                appendLine("$name:")
+                append("    Part One: ")
+                if (result.isSuccess) {
+                    appendLine(result.getOrNull())
+                } else {
+                    appendLine(result.exceptionOrNull()!!.message)
+                }
+                append("    Part Two: ")
+                if (resultTwo.isSuccess) {
+                    appendLine(resultTwo.getOrNull())
+                } else {
+                    appendLine(resultTwo.exceptionOrNull()!!.message)
+                }
+            })
+            System.out.flush()
         }
 }
 

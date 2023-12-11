@@ -1,9 +1,6 @@
 package wtf.cwrau
 
-fun interface AdventOfCodeDay<R> {
-    fun calculate(input: List<String>): R
-    fun calculate(input: String) = calculate(
-        input.lines()
-            .filter { it.isNotEmpty() }
-    )
+interface AdventOfCodeDay<R> {
+    fun calculatePartOne(input: List<String>): R
+    fun calculatePartTwo(input: List<String>): R
 }

@@ -2,7 +2,7 @@ package wtf.cwrau.advent
 
 import wtf.cwrau.AdventOfCodeDay
 
-class DayOne : AdventOfCodeDay<Int> {
+class Day1 : AdventOfCodeDay<Int> {
     private val digits = listOf(
         "zero",
         "one",
@@ -16,7 +16,7 @@ class DayOne : AdventOfCodeDay<Int> {
         "nine",
     )
 
-    override fun calculate(input: List<String>): Int {
+    override fun calculatePartOne(input: List<String>): Int {
         return input
             .map {
                 val parseDigits = it.parseDigits()
@@ -27,6 +27,8 @@ class DayOne : AdventOfCodeDay<Int> {
                 number.toInt()
             }
     }
+
+    override fun calculatePartTwo(input: List<String>) = calculatePartOne(input)
 
     private fun String.parseDigits(): List<Int> = indices
         .fold(listOf()) { numbers, index ->

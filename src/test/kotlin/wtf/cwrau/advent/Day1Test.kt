@@ -3,9 +3,9 @@ package wtf.cwrau.advent
 import org.junit.jupiter.api.Assertions.assertEquals
 import kotlin.test.Test
 
-class DayOneTest {
+class Day1Test : AdventTests {
     @Test
-    fun `input 1`() {
+    override fun `test part one`() {
         val input = """
             1abc2
             pqr3stu8vwx
@@ -13,11 +13,13 @@ class DayOneTest {
             treb7uchet
         """.trimIndent()
 
-        assertEquals(142, DayOne().calculate(input))
+        assertEquals(142, Day1().calculatePartOne(
+            input.lines()
+        ))
     }
 
     @Test
-    fun `input 2`() {
+    override fun `test part two`() {
         val input = """
             two1nine
             eightwothree
@@ -28,7 +30,9 @@ class DayOneTest {
             7pqrstsixteen
         """.trimIndent()
 
-        assertEquals(281, DayOne().calculate(input))
+        assertEquals(281, Day1().calculatePartOne(
+            input.lines()
+        ))
     }
 
 }
