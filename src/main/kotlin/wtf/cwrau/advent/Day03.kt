@@ -2,7 +2,7 @@ package wtf.cwrau.advent
 
 import wtf.cwrau.AdventOfCodeDay
 
-class Day3 : AdventOfCodeDay<Int> {
+object Day03 : AdventOfCodeDay<Int>(3, "Gear Ratios") {
     private val objectRegex: Regex = Regex("""\d+|[^.\d]""")
 
     data class Coordinate(val x: Int, val y: Int)
@@ -96,4 +96,23 @@ class Day3 : AdventOfCodeDay<Int> {
         val (gears, symbols) = partition { it is Schema.Gear }
         return gears.filterIsInstance<Schema.Gear>() to symbols.filterIsInstance<Schema.Symbol>()
     }
+
+    override val partOneExamples: Map<List<String>, Int> = mapOf(
+        """
+            467..114..
+            ...*......
+            ..35..633.
+            ......#...
+            617*......
+            .....+.58.
+            ..592.....
+            ......755.
+            ...$.*....
+            .664.598..
+        """.trimIndent().lines() to 4361
+    )
+
+    override val partTwoExamples: Map<List<String>, Int> = mapOf(
+        partOneExamples.keys.first() to 467835
+    )
 }

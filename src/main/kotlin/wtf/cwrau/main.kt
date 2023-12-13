@@ -1,9 +1,15 @@
 package wtf.cwrau
 
-import java.util.*
-
 fun main() {
-    ServiceLoader.load(AdventOfCodeDay::class.java)
+    ClassLoader.getSystemClassLoader()
+        .let { loader ->
+            (1..24).map {
+                runCatching { loader.loadClass("wtf.cwrau.advent.Day${it.toString().padStart(2, '0')}") }
+            }
+        }
+        .mapNotNull { it.getOrNull() }
+        .filterIsInstance<Class<AdventOfCodeDay<*>>>()
+        .mapNotNull { it.kotlin.objectInstance }
         .associateBy {
             it::class.java.simpleName
         }

@@ -2,17 +2,22 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.9.21"
+    application
 }
 
 group = "wtf.cwrau"
 version = "1.0-SNAPSHOT"
+
+application {
+    mainClass.set("wtf.cwrau.MainKt")
+}
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlinx", "kotlinx-coroutines-core", "1.7.3")
+    implementation(kotlin("reflect"))
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5:1.8.10")
     testRuntimeOnly("org.junit.platform", "junit-platform-launcher")
 }
@@ -35,5 +40,3 @@ tasks.withType<KotlinCompile> {
         freeCompilerArgs = listOf("-Xjsr305=strict", "-Xcontext-receivers")
     }
 }
-
-

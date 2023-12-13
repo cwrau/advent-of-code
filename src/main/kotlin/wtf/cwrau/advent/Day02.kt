@@ -2,7 +2,7 @@ package wtf.cwrau.advent
 
 import wtf.cwrau.AdventOfCodeDay
 
-class Day2 : AdventOfCodeDay<Int> {
+object Day02 : AdventOfCodeDay<Int>(2, "Cube Conundrum") {
     enum class Color {
         blue, red, green
     }
@@ -28,6 +28,7 @@ class Day2 : AdventOfCodeDay<Int> {
 
     private fun parseGames(input: List<String>): Map<Int, List<Map<Color, Int>>> {
         val games = input
+            .filter { it.isNotEmpty() }
             .associate { gameLine ->
                 val id = gameLine.removePrefix("Game ")
                     .takeWhile { it.isDigit() }
@@ -66,4 +67,18 @@ class Day2 : AdventOfCodeDay<Int> {
                 it.values.reduce(Int::times)
             }
     }
+
+    override val partOneExamples: Map<List<String>, Int> = mapOf(
+        """
+            Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
+            Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue
+            Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red
+            Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red
+            Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green
+        """.trimIndent().lines() to 8
+    )
+
+    override val partTwoExamples: Map<List<String>, Int> = mapOf(
+        partOneExamples.keys.first() to 2286
+    )
 }
