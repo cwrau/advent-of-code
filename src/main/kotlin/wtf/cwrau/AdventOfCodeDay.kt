@@ -9,5 +9,5 @@ abstract class AdventOfCodeDay<R>(val number: Int, val name: String) {
     open fun calculatePartTwo(input: List<String> = inputList): R = calculatePartOne(input)
 
     abstract val partOneExamples: Map<List<String>, R>
-    abstract val partTwoExamples: Map<List<String>, R>
+    open val partTwoExamples: Map<List<String>, R> = mapOf()
 }
