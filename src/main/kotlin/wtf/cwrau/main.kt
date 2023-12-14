@@ -5,6 +5,7 @@ import wtf.cwrau.advent.Day02
 import wtf.cwrau.advent.Day03
 import wtf.cwrau.advent.Day04
 import wtf.cwrau.advent.Day06
+import wtf.cwrau.advent.Day07
 
 fun main(args: Array<String>) {
     val days = listOf(
@@ -14,11 +15,16 @@ fun main(args: Array<String>) {
         Day04,
 //        Day05, // Skipped for speed
         Day06,
+        Day07
     )
     if (args.isNotEmpty()) {
-        args.map { it.toInt() }.map { days[it] }
+        if (args.singleOrNull() == "all") {
+            days
+        } else {
+            args.map { it.toInt() }.map { days[it] }
+        }
     } else {
-        days
+        listOf(days.last())
     }
         .forEach { advent ->
             calculateAndPrintDay(advent)
