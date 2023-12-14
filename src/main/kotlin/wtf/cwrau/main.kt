@@ -4,8 +4,10 @@ import wtf.cwrau.advent.Day01
 import wtf.cwrau.advent.Day02
 import wtf.cwrau.advent.Day03
 import wtf.cwrau.advent.Day04
+import wtf.cwrau.advent.Day05
 import wtf.cwrau.advent.Day06
 import wtf.cwrau.advent.Day07
+import wtf.cwrau.advent.Day08
 
 fun main(args: Array<String>) {
     val days = listOf(
@@ -13,9 +15,10 @@ fun main(args: Array<String>) {
         Day02,
         Day03,
         Day04,
-//        Day05, // Skipped for speed
+        Day05, // Skipped for speed
         Day06,
-        Day07
+        Day07,
+        Day08,
     )
     if (args.isNotEmpty()) {
         if (args.singleOrNull() == "all") {
@@ -31,7 +34,7 @@ fun main(args: Array<String>) {
         }
 }
 
-private fun calculateAndPrintDay(advent: AdventOfCodeDay<Int>) {
+private fun calculateAndPrintDay(advent: AdventOfCodeDay<*>) {
     val input = getInput(advent.number).lines()
     val results =
         runCatching { advent.calculatePartOne(input) } to runCatching { advent.calculatePartTwo(input) }
