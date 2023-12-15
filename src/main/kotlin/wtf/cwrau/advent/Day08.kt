@@ -3,7 +3,7 @@ package wtf.cwrau.advent
 import wtf.cwrau.AdventOfCodeDay
 
 object Day08 : AdventOfCodeDay<Long>(8, "Haunted Wasteland") {
-    enum class Direction {
+    private enum class Direction {
         L, R
     }
 

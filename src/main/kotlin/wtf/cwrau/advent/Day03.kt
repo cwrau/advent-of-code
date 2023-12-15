@@ -5,9 +5,9 @@ import wtf.cwrau.AdventOfCodeDay
 object Day03 : AdventOfCodeDay<Int>(3, "Gear Ratios") {
     private val objectRegex: Regex = Regex("""\d+|[^.\d]""")
 
-    data class Coordinate(val x: Int, val y: Int)
+    private data class Coordinate(val x: Int, val y: Int)
 
-    sealed class Schema(val coordinates: List<Coordinate>) {
+    private sealed class Schema(val coordinates: List<Coordinate>) {
 
         fun calculateNeighbours() = (coordinates.minOf { it.y } - 1..coordinates.maxOf { it.y } + 1).flatMap { y ->
             (coordinates.minOf { it.x } - 1..coordinates.maxOf { it.x } + 1).map { x ->
