@@ -24,6 +24,7 @@ class DaysTest {
         Solution(Day07, 249748283, 248029057),
         Solution(Day08, 21251, 11678319315857),
         Solution(Day09, 2075724761, 1072),
+        Solution(Day10, 6806, null),
     ).flatMap { (day, partOne, partTwo) ->
         buildList {
             val testPrefix = "Day ${day.number} - ${day.name} - "
