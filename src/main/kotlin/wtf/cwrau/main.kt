@@ -8,6 +8,7 @@ import wtf.cwrau.advent.Day05
 import wtf.cwrau.advent.Day06
 import wtf.cwrau.advent.Day07
 import wtf.cwrau.advent.Day08
+import wtf.cwrau.advent.Day09
 
 fun main(args: Array<String>) {
     val days = listOf(
@@ -19,6 +20,7 @@ fun main(args: Array<String>) {
         Day06,
         Day07,
         Day08,
+        Day09,
     )
     if (args.isNotEmpty()) {
         if (args.singleOrNull() == "all") {
