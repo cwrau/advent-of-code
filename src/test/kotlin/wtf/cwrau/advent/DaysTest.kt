@@ -3,6 +3,14 @@ package wtf.cwrau.advent
 import org.junit.jupiter.api.DynamicTest
 import org.junit.jupiter.api.TestFactory
 import wtf.cwrau.AdventOfCodeDay
+import wtf.cwrau.advent.twentythree.Day01
+import wtf.cwrau.advent.twentythree.Day02
+import wtf.cwrau.advent.twentythree.Day03
+import wtf.cwrau.advent.twentythree.Day04
+import wtf.cwrau.advent.twentythree.Day07
+import wtf.cwrau.advent.twentythree.Day08
+import wtf.cwrau.advent.twentythree.Day09
+import wtf.cwrau.advent.twentythree.Day10
 import kotlin.test.assertEquals
 
 class DaysTest {
@@ -29,9 +37,9 @@ class DaysTest {
         buildList {
             val testPrefix = "Day ${day.number} - ${day.name} - "
             if (day.partOneExamples.isNotEmpty()) {
-                add(
-                    DynamicTest.dynamicTest("${testPrefix}Part One - Example") {
-                        day.partOneExamples.forEach { (example, solution) ->
+                addAll(
+                    day.partOneExamples.entries.mapIndexed { index, (example, solution) ->
+                        DynamicTest.dynamicTest("${testPrefix}Part One - Example $index") {
                             assertEquals(solution, day.calculatePartOne(example))
                         }
                     }
@@ -47,9 +55,9 @@ class DaysTest {
             }
 
             if (day.partTwoExamples.isNotEmpty()) {
-                add(
-                    DynamicTest.dynamicTest("${testPrefix}Part Two - Example") {
-                        day.partTwoExamples.forEach { (example, solution) ->
+                addAll(
+                    day.partTwoExamples.entries.mapIndexed { index, (example, solution) ->
+                        DynamicTest.dynamicTest("${testPrefix}Part Two - Example $index") {
                             assertEquals(solution, day.calculatePartTwo(example))
                         }
                     }
