@@ -1,13 +1,9 @@
 package wtf.cwrau
 
-abstract class AdventOfCodeDay<R>(val number: Int, val name: String) {
-    private val inputList by lazy {
-        ClassLoader.getSystemResource("Day${number.toString().padStart(2, '0')}").readText().lines()
-    }
+abstract class AdventOfCodeDay(val number: Int, val name: String) {
+    abstract fun calculatePartOne(input: List<String>): Long
+    open fun calculatePartTwo(input: List<String>): Long = calculatePartOne(input)
 
-    abstract fun calculatePartOne(input: List<String> = inputList): R
-    open fun calculatePartTwo(input: List<String> = inputList): R = calculatePartOne(input)
-
-    abstract val partOneExamples: Map<List<String>, R>
-    open val partTwoExamples: Map<List<String>, R> = mapOf()
+    abstract val partOneExamples: Map<List<String>, Long>
+    open val partTwoExamples: Map<List<String>, Long> = mapOf()
 }

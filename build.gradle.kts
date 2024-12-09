@@ -1,3 +1,4 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -17,7 +18,9 @@ repositories {
 }
 
 dependencies {
-    implementation(kotlin("reflect"))
+    implementation("io.ktor:ktor-client-core:3.0.2")
+    implementation("io.ktor:ktor-client-cio:3.0.2")
+    implementation("io.ktor:ktor-client-cio-jvm:3.0.2")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5:1.8.10")
     testRuntimeOnly("org.junit.platform", "junit-platform-launcher")
 }
@@ -34,8 +37,8 @@ kotlin {
 }
 
 tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        jvmTarget = "${JavaVersion.VERSION_17}"
+    compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_17)
         javaParameters = true
         freeCompilerArgs = listOf("-Xjsr305=strict", "-Xcontext-receivers")
     }
